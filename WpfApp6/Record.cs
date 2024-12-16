@@ -8,7 +8,16 @@ namespace WpfApp6
 {
     internal class Record
     {
-        public string SelectedStudent { get; set; }
-        public string SelectedCourse { get; set; }
+        public Student SelectedStudent { get; set; }
+        public Course SelectedCourse { get; set; }
+        public override string ToString()
+        {
+            return $"{SelectedStudent.StudentName} /  {SelectedCourse.CourseName}";
+        }
+
+        public bool Equals(Record record)
+        {
+            return SelectedStudent.StudentId == record.SelectedStudent.StudentId && SelectedCourse.CourseName == record.SelectedCourse.CourseName;
+        }
     }
 }
